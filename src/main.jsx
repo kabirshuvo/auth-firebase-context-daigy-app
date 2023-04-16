@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Blog from './components/Blog';
 import Home from './components/Home';
 import Login from './components/Login';
+import Orders from './components/Orders';
 import Register from './components/Register';
 import './index.css';
 import App from './lauout/App';
 import AuthProviders from './providers/AuthProviders';
+import PrivateRouts from './Routs/PrivateRouts';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/orders',
+        element: <PrivateRouts><Orders></Orders></PrivateRouts>
+      },
+      {
+        path: '/blog',
+        element: <PrivateRouts><Blog></Blog></PrivateRouts>
       }
     ]
   },
